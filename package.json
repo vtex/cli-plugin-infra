@@ -1,7 +1,7 @@
 {
   "name": "@vtex/cli-plugin-infra",
   "description": "vtex plugin infra",
-  "version": "0.0.0",
+  "version": "0.0.1-beta",
   "bugs": "https://github.com/vtex/cli-plugin-infra/issues",
   "dependencies": {
     "@oclif/command": "^1",
