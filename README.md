@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-infra
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-infra/0.0.0 linux-x64 node-v12.18.3
+@vtex/cli-plugin-infra/0.0.1-beta linux-x64 node-v12.18.3
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -60,7 +60,7 @@ EXAMPLES
   vtex infra install infra-service@0.0.1
 ```
 
-_See code: [build/commands/infra/install.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.0/build/commands/infra/install.ts)_
+_See code: [build/commands/infra/install.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.1-beta/build/commands/infra/install.ts)_
 
 ## `oclif-example infra:list [NAME]`
 
@@ -85,7 +85,7 @@ EXAMPLES
   vtex infra ls
 ```
 
-_See code: [build/commands/infra/list.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.0/build/commands/infra/list.ts)_
+_See code: [build/commands/infra/list.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.1-beta/build/commands/infra/list.ts)_
 
 ## `oclif-example infra:update`
 
@@ -104,5 +104,5 @@ EXAMPLE
   vtex infra update
 ```
 
-_See code: [build/commands/infra/update.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.0/build/commands/infra/update.ts)_
+_See code: [build/commands/infra/update.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.1-beta/build/commands/infra/update.ts)_
 <!-- commandsstop -->
