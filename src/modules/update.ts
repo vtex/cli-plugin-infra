@@ -3,7 +3,7 @@ import chalk from 'chalk'
 import ora from 'ora'
 import pad from 'pad'
 import semver from 'semver'
-import log, { Region, createRouterClient, promptConfirm } from 'vtex'
+import { logger, Region, createRouterClient, promptConfirm } from 'vtex'
 
 import { diffVersions, getTag } from './utils'
 
@@ -41,11 +41,13 @@ const createVersionMap = (availableRes: AvailableServices, installedRes: Install
         .sort(semver.rcompare)[0]
 
       if (currentVersion !== latestVersion) {
+        // @ts-ignore
         acc.update[name] = {
           current: currentVersion,
           latest: latestVersion,
         }
       } else {
+        // @ts-ignore
         acc.latest[name] = currentVersion
       }
 
@@ -72,7 +74,7 @@ export default async () => {
     console.log('')
 
     if (!hasUpdate(versionMap.update)) {
-      log.info('All up to date!')
+      logger.info('All up to date!')
 
       return
     }
@@ -89,7 +91,7 @@ export default async () => {
         return installUpdates(versionMap.update)
       })
       .then(() => spinner.stop())
-      .then(() => log.info('All updates were installed'))
+      .then(() => logger.info('All updates were installed'))
   } catch (err) {
     spinner.stop()
     throw err

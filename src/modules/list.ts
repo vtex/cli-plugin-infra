@@ -1,7 +1,7 @@
 import { AvailableServices, InstalledService } from '@vtex/api'
 import chalk from 'chalk'
 import semver from 'semver'
-import log, { createRouterClient, SessionManager, createTable } from 'vtex'
+import { logger, createRouterClient, SessionManager, createTable } from 'vtex'
 
 import { getLastStableAndPrerelease } from './utils'
 
@@ -23,7 +23,7 @@ const printAvailableServices = () =>
       return table
     })
     .then((table) => {
-      log.info('Available services')
+      logger.info('Available services')
       console.log(table.toString())
     })
 
@@ -58,6 +58,7 @@ const printInstalledServices = () =>
       installedRes.forEach(({ name, version }) => {
         const validVersion = semver.valid(version)
         const styledVersion =
+          // @ts-ignore
           semver.prerelease(validVersion) !== null ? chalk.yellow(validVersion) : chalk.bold.green(validVersion)
 
         table.push([name, styledVersion])
@@ -66,10 +67,11 @@ const printInstalledServices = () =>
       return table
     })
     .then((table) => {
-      log.info(`Services installed on ${chalk.blue(account)}/${chalk.green(workspace)}`)
+      logger.info(`Services installed on ${chalk.blue(account)}/${chalk.green(workspace)}`)
       console.log(table.toString())
     })
 
+// @ts-ignore
 export default (name: string, options) => {
   const filter = options.f || options.filter
   const available = options.a || options.available

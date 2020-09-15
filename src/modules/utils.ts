@@ -14,18 +14,25 @@ const zipLongest = (xs: string | string[], ys: string | string[]) => {
   let l2 = ys
 
   if (xs.length < ys.length) {
+    // @ts-ignore
     l1 = R.concat(xs, R.repeat(EMPTY_STRING, ys.length - xs.length))
   } else if (ys.length < xs.length) {
+    // @ts-ignore
     l2 = R.concat(ys, R.repeat(EMPTY_STRING, xs.length - ys.length))
   }
 
+  // @ts-ignore
   return R.zip(l1, l2)
 }
 
 const diff = (a: string | string[], b: string | string[]): string[] => {
+  // @ts-ignore
   const from = []
+  // @ts-ignore
   const to = []
+  // @ts-ignore
   let fromFormatter = (x) => x
+  // @ts-ignore
   let toFormatter = (x) => x
 
   R.compose(
@@ -47,6 +54,7 @@ const diff = (a: string | string[], b: string | string[]): string[] => {
     zipLongest
   )(a, b)
 
+  // @ts-ignore
   return [from.join('.'), to.join('.')]
 }
 
@@ -68,6 +76,7 @@ export const getLastStableAndPrerelease = (service: InfraResourceVersions): [str
 export const getTag = (version: string): string => {
   const segments = semver.prerelease(version)
 
+  // @ts-ignore
   return segments ? segments[0] : null
 }
 
@@ -75,11 +84,11 @@ export const diffVersions = (a: string, b: string): [string, string] => {
   const semverA = semver.parse(a)
   const semverB = semver.parse(b)
   const [aMain, bMain] = diff(
-    [semverA.major.toString(), semverA.minor.toString(), semverA.patch.toString()],
-    [semverB.major.toString(), semverB.minor.toString(), semverB.patch.toString()]
+    [semverA!.major.toString(), semverA!.minor.toString(), semverA!.patch.toString()],
+    [semverB!.major.toString(), semverB!.minor.toString(), semverB!.patch.toString()]
   )
 
-  const [aPre, bPre] = diff(semverA.prerelease.map(String), semverB.prerelease.map(String))
+  const [aPre, bPre] = diff(semverA!.prerelease.map(String), semverB!.prerelease.map(String))
 
   return [stitch(aMain, aPre), stitch(bMain, bPre)]
 }

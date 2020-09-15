@@ -2,7 +2,7 @@ import chalk from 'chalk'
 import ora from 'ora'
 import { curry, path } from 'ramda'
 import semver from 'semver'
-import log, { Region, createRouterClient, promptConfirm } from 'vtex'
+import { Region, createRouterClient, logger, promptConfirm } from 'vtex'
 
 import { diffVersions, getTag } from './utils'
 
@@ -12,12 +12,14 @@ const { getAvailableVersions, listInstalledServices, installService } = router
 const promptInstall = () => Promise.resolve(promptConfirm('Continue with the installation?'))
 
 const findVersion = (pool: string[], predicate: (version: string) => boolean): string =>
+  // @ts-ignore
   pool
     .filter((v) => semver.valid(v))
     .filter(predicate)
     .sort(semver.rcompare)
     .shift()
 
+// @ts-ignore
 const getNewVersion = curry<string, string, string[], [string, string]>(
   (suffix: string, installedVersion: string, availableVersions: string[]): [string, string] => {
     const tag = getTag(installedVersion)
@@ -26,22 +28,28 @@ const getNewVersion = curry<string, string, string[], [string, string]>(
     const hasSuffixOnAvailable = availableVersions.find((v) => v === suffix)
 
     if (hasSuffixAndValidSuffix && hasSuffixOnAvailable) {
+      // @ts-ignore
       return [installedVersion, suffix]
     }
 
     if (hasSuffixAndValidSuffix && !hasSuffixOnAvailable) {
+      // @ts-ignore
       return [installedVersion, null]
     }
 
     const hasValidRange = semver.validRange(suffix, true)
     const hasTagOrInstalledVersion = !tag || !installedVersion
     const fn = hasValidRange
-      ? (v) => semver.satisfies(v, suffix, true)
+      ? // @ts-ignore
+        (v) => semver.satisfies(v, suffix, true)
       : suffix && !hasValidSuffix
-      ? (v) => getTag(v) === null
+      ? // @ts-ignore
+        (v) => getTag(v) === null
       : hasTagOrInstalledVersion
-      ? (v) => semver.prerelease(v) === null
-      : (v) => getTag(v) === tag
+      ? // @ts-ignore
+        (v) => semver.prerelease(v) === null
+      : // @ts-ignore
+        (v) => getTag(v) === tag
 
     const newVersion = findVersion(availableVersions, fn)
 
@@ -49,17 +57,18 @@ const getNewVersion = curry<string, string, string[], [string, string]>(
   }
 )
 
+// @ts-ignore
 const logInstall = curry<string, [string, string], void>(
   (name: string, [installedVersion, newVersion]: [string, string]): void => {
     if (!newVersion) {
-      log.error(`No suitable version for ${name}`)
+      logger.error(`No suitable version for ${name}`)
 
       return
     }
 
     if (newVersion === installedVersion) {
       console.log(`${name}  ${chalk.yellow(installedVersion)}`)
-      log.info('Service is up to date.')
+      logger.info('Service is up to date.')
 
       return
     }
@@ -91,14 +100,17 @@ export default async (name: string) => {
   // as it shouldn't return the regions in the response if I'm already querying
   // a single region. Only change to use `env.region()` when router fixed.
   try {
+    // @ts-ignore
     const allVersions = (await Promise.all([
       getInstalledVersion(service),
       getAvailableVersions(service).then(path(['versions', Region.Production])),
     ])) as [string, string[]]
 
     spinner.stop()
+    // @ts-ignore
     const newVersions: [string, string] = getNewVersion(suffix)(...allVersions)
 
+    // @ts-ignore
     logInstall(service)(newVersions)
     if (!hasNewVersion(newVersions)) {
       return null
@@ -118,7 +130,7 @@ export default async (name: string) => {
       })
       .then(() => {
         spinner.stop()
-        log.info('Installation complete')
+        logger.info('Installation complete')
       })
   } catch (err) {
     spinner.stop()
