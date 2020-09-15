@@ -51,7 +51,12 @@
     "bin": "oclif-example",
     "devPlugins": [
       "@oclif/plugin-help"
-    ]
+    ],
+    "topics": {
+      "infra": {
+        "description": "Infra commands. Run 'vtex infra' to see all subcommands"
+      }
+    }
   },
   "repository": "vtex/cli-plugin-infra",
   "scripts": {
