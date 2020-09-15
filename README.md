@@ -18,7 +18,7 @@ For more information, read [Ocliff Docs](https://oclif.io/docs/introduction).
 ![npm](https://img.shields.io/npm/v/@vtex/cli-plugin-infra)
 
 <!-- toc -->
-* [VTEX CLI Plugin Infra](#vtex-cli-plugin-infra)
+* [VTEX CLI Plugin Template](#vtex-cli-plugin-template)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-infra
 $ oclif-example COMMAND
 running command...
 $ oclif-example (-v|--version|version)
-@vtex/cli-plugin-infra/0.0.0 darwin-x64 node-v12.18.3
+@vtex/cli-plugin-infra/0.0.0 linux-x64 node-v12.18.3
 $ oclif-example --help [COMMAND]
 USAGE
   $ oclif-example COMMAND
@@ -38,27 +38,71 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example hello [FILE]`](#oclif-example-hello-file)
+* [`oclif-example infra:install SERVICEID`](#oclif-example-infrainstall-serviceid)
+* [`oclif-example infra:list [NAME]`](#oclif-example-infralist-name)
+* [`oclif-example infra:update`](#oclif-example-infraupdate)
 
-## `oclif-example hello [FILE]`
+## `oclif-example infra:install SERVICEID`
 
-describe the command here
+Install an infra service
 
 ```
 USAGE
-  $ oclif-example hello [FILE]
+  $ oclif-example infra:install SERVICEID
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-  -v, --verbose    Show debug level logs
-  --trace          Ensure all requests to VTEX IO are traced
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  --trace        Ensure all requests to VTEX IO are traced
 
-EXAMPLE
-  $ oclif-example hello
-  hello world from ./src/hello.ts!
+EXAMPLES
+  vtex infra install infra-service
+  vtex infra install infra-service@0.0.1
 ```
 
-_See code: [build/commands/hello.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.0/build/commands/hello.ts)_
+_See code: [build/commands/infra/install.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.0/build/commands/infra/install.ts)_
+
+## `oclif-example infra:list [NAME]`
+
+List installed infra services
+
+```
+USAGE
+  $ oclif-example infra:list [NAME]
+
+OPTIONS
+  -a, --available      List services available to install
+  -f, --filter=filter  Only list versions containing this word
+  -h, --help           show CLI help
+  -v, --verbose        Show debug level logs
+  --trace              Ensure all requests to VTEX IO are traced
+
+ALIASES
+  $ oclif-example infra:ls
+
+EXAMPLES
+  vtex infra list
+  vtex infra ls
+```
+
+_See code: [build/commands/infra/list.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.0/build/commands/infra/list.ts)_
+
+## `oclif-example infra:update`
+
+Update all installed infra services
+
+```
+USAGE
+  $ oclif-example infra:update
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  --trace        Ensure all requests to VTEX IO are traced
+
+EXAMPLE
+  vtex infra update
+```
+
+_See code: [build/commands/infra/update.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.0.0/build/commands/infra/update.ts)_
 <!-- commandsstop -->
