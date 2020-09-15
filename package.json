@@ -6,6 +6,8 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "pad": "^3.2.0",
+    "ramda": "~0.25.0",
     "tslib": "^1"
   },
   "devDependencies": {
@@ -13,6 +15,7 @@
     "@oclif/plugin-help": "^3",
     "@types/jest": "^26.0.3",
     "@types/node": "^14.0.14",
+    "@types/semver": "^7.3.4",
     "eslint": "^6.8.0",
     "eslint-config-oclif": "^3.1",
     "eslint-config-vtex": "^12.3.0",
@@ -23,10 +26,11 @@
     "nodemon": "^2.0.2",
     "nodemon-notifier-cli": "https://github.com/Slessi/nodemon-notifier-cli.git",
     "prettier": "^2.0.1",
+    "semver": "^7.3.2",
     "ts-jest": "^25.2.1",
     "ts-node": "^8",
     "typescript": "^3.8.2",
-    "vtex": "^2.111.0"
+    "vtex": "^2.112.0-beta"
   },
   "engines": {
     "node": ">=8.0.0"
