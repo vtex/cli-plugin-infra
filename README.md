@@ -15,7 +15,7 @@ Extend the `vtex` toolbelt!
 For more information, read [Ocliff Docs](https://oclif.io/docs/introduction).
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-![npm](https://img.shields.io/npm/v/@vtex/cli-plugin-template)
+![npm](https://img.shields.io/npm/v/@vtex/cli-plugin-infra)
 
 <!-- toc -->
 * [VTEX CLI Plugin Template](#vtex-cli-plugin-template)
@@ -25,40 +25,84 @@ For more information, read [Ocliff Docs](https://oclif.io/docs/introduction).
 # Usage
 <!-- usage -->
 ```sh-session
-$ npm install -g @vtex/cli-plugin-template
-$ oclif-example COMMAND
+$ npm install -g @vtex/cli-plugin-infra
+$ vtex COMMAND
 running command...
-$ oclif-example (-v|--version|version)
-@vtex/cli-plugin-template/0.0.0 linux-x64 node-v12.18.3
-$ oclif-example --help [COMMAND]
+$ vtex (-v|--version|version)
+@vtex/cli-plugin-infra/0.1.0 linux-x64 node-v12.18.4
+$ vtex --help [COMMAND]
 USAGE
-  $ oclif-example COMMAND
+  $ vtex COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`oclif-example hello [FILE]`](#oclif-example-hello-file)
+* [`vtex infra:install SERVICEID`](#vtex-infrainstall-serviceid)
+* [`vtex infra:list [NAME]`](#vtex-infralist-name)
+* [`vtex infra:update`](#vtex-infraupdate)
 
-## `oclif-example hello [FILE]`
+## `vtex infra:install SERVICEID`
 
-describe the command here
+Install an infra service
 
 ```
 USAGE
-  $ oclif-example hello [FILE]
+  $ vtex infra:install SERVICEID
 
 OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-  -v, --verbose    Show debug level logs
-  --trace          Ensure all requests to VTEX IO are traced
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  --trace        Ensure all requests to VTEX IO are traced
 
-EXAMPLE
-  $ oclif-example hello
-  hello world from ./src/hello.ts!
+EXAMPLES
+  vtex infra install infra-service
+  vtex infra install infra-service@0.0.1
 ```
 
-_See code: [build/commands/hello.ts](https://github.com/vtex/cli-plugin-template/blob/v0.0.0/build/commands/hello.ts)_
+_See code: [build/commands/infra/install.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.1.0/build/commands/infra/install.ts)_
+
+## `vtex infra:list [NAME]`
+
+List installed infra services
+
+```
+USAGE
+  $ vtex infra:list [NAME]
+
+OPTIONS
+  -a, --available      List services available to install
+  -f, --filter=filter  Only list versions containing this word
+  -h, --help           show CLI help
+  -v, --verbose        Show debug level logs
+  --trace              Ensure all requests to VTEX IO are traced
+
+ALIASES
+  $ vtex infra:ls
+
+EXAMPLES
+  vtex infra list
+  vtex infra ls
+```
+
+_See code: [build/commands/infra/list.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.1.0/build/commands/infra/list.ts)_
+
+## `vtex infra:update`
+
+Update all installed infra services
+
+```
+USAGE
+  $ vtex infra:update
+
+OPTIONS
+  -h, --help     show CLI help
+  -v, --verbose  Show debug level logs
+  --trace        Ensure all requests to VTEX IO are traced
+
+EXAMPLE
+  vtex infra update
+```
+
+_See code: [build/commands/infra/update.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.1.0/build/commands/infra/update.ts)_
 <!-- commandsstop -->
