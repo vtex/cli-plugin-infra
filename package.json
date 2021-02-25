@@ -54,7 +54,7 @@
     ],
     "topics": {
       "infra": {
-        "description": "Infra commands. Run 'vtex infra' to see all subcommands"
+        "description": "Installs, updates, or lists infra services. Run 'vtex infra' to see all 3 subcommands"
       }
     }
   },
