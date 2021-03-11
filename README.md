@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-infra
 $ vtex COMMAND
 running command...
 $ vtex (-v|--version|version)
-@vtex/cli-plugin-infra/0.1.0 linux-x64 node-v12.18.4
+@vtex/cli-plugin-infra/0.2.1 linux-x64 node-v12.21.0
 $ vtex --help [COMMAND]
 USAGE
   $ vtex COMMAND
@@ -44,11 +44,14 @@ USAGE
 
 ## `vtex infra:install SERVICEID`
 
-Install an infra service
+Installs an infra service.
 
 ```
 USAGE
   $ vtex infra:install SERVICEID
+
+ARGUMENTS
+  SERVICEID  Name and version of the service ({vendor}.{servicename}@{x.x.x}) to install.
 
 OPTIONS
   -h, --help     show CLI help
@@ -60,19 +63,22 @@ EXAMPLES
   vtex infra install infra-service@0.0.1
 ```
 
-_See code: [build/commands/infra/install.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.1.0/build/commands/infra/install.ts)_
+_See code: [build/commands/infra/install.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.2.1/build/commands/infra/install.ts)_
 
 ## `vtex infra:list [NAME]`
 
-List installed infra services
+Lists installed infra services.
 
 ```
 USAGE
   $ vtex infra:list [NAME]
 
+ARGUMENTS
+  NAME  Service name.
+
 OPTIONS
-  -a, --available      List services available to install
-  -f, --filter=filter  Only list versions containing this word
+  -a, --available      Lists services that are available to install.
+  -f, --filter=filter  Lists services that contain the specified word.
   -h, --help           show CLI help
   -v, --verbose        Show debug level logs
   --trace              Ensure all requests to VTEX IO are traced
@@ -85,11 +91,11 @@ EXAMPLES
   vtex infra ls
 ```
 
-_See code: [build/commands/infra/list.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.1.0/build/commands/infra/list.ts)_
+_See code: [build/commands/infra/list.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.2.1/build/commands/infra/list.ts)_
 
 ## `vtex infra:update`
 
-Update all installed infra services
+Updates all installed infra services.
 
 ```
 USAGE
@@ -104,5 +110,5 @@ EXAMPLE
   vtex infra update
 ```
 
-_See code: [build/commands/infra/update.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.1.0/build/commands/infra/update.ts)_
+_See code: [build/commands/infra/update.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.2.1/build/commands/infra/update.ts)_
 <!-- commandsstop -->
