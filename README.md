@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-infra
 $ vtex COMMAND
 running command...
 $ vtex (-v|--version|version)
-@vtex/cli-plugin-infra/0.1.0 linux-x64 node-v12.18.4
+@vtex/cli-plugin-infra/0.1.0 linux-x64 node-v12.21.0
 $ vtex --help [COMMAND]
 USAGE
   $ vtex COMMAND
@@ -44,11 +44,14 @@ USAGE
 
 ## `vtex infra:install SERVICEID`
 
-Install an infra service
+Installs an infra service.
 
 ```
 USAGE
   $ vtex infra:install SERVICEID
+
+ARGUMENTS
+  SERVICEID  Name and version of the service ({vendor}.{servicename}@{x.x.x}) to install.
 
 OPTIONS
   -h, --help     show CLI help
@@ -64,15 +67,18 @@ _See code: [build/commands/infra/install.ts](https://github.com/vtex/cli-plugin-
 
 ## `vtex infra:list [NAME]`
 
-List installed infra services
+Lists installed infra services.
 
 ```
 USAGE
   $ vtex infra:list [NAME]
 
+ARGUMENTS
+  NAME  Service name.
+
 OPTIONS
-  -a, --available      List services available to install
-  -f, --filter=filter  Only list versions containing this word
+  -a, --available      Lists services that are available to install.
+  -f, --filter=filter  Lists services that contain the specified word.
   -h, --help           show CLI help
   -v, --verbose        Show debug level logs
   --trace              Ensure all requests to VTEX IO are traced
@@ -89,7 +95,7 @@ _See code: [build/commands/infra/list.ts](https://github.com/vtex/cli-plugin-inf
 
 ## `vtex infra:update`
 
-Update all installed infra services
+Updates all installed infra services.
 
 ```
 USAGE
