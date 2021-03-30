@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-infra
 $ vtex COMMAND
 running command...
 $ vtex (-v|--version|version)
-@vtex/cli-plugin-infra/0.2.1 linux-x64 node-v12.21.0
+@vtex/cli-plugin-infra/0.2.2 linux-x64 node-v12.21.0
 $ vtex --help [COMMAND]
 USAGE
   $ vtex COMMAND
@@ -63,7 +63,7 @@ EXAMPLES
   vtex infra install infra-service@0.0.1
 ```
 
-_See code: [build/commands/infra/install.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.2.1/build/commands/infra/install.ts)_
+_See code: [build/commands/infra/install.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.2.2/build/commands/infra/install.ts)_
 
 ## `vtex infra:list [NAME]`
 
@@ -91,7 +91,7 @@ EXAMPLES
   vtex infra ls
 ```
 
-_See code: [build/commands/infra/list.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.2.1/build/commands/infra/list.ts)_
+_See code: [build/commands/infra/list.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.2.2/build/commands/infra/list.ts)_
 
 ## `vtex infra:update`
 
@@ -110,5 +110,5 @@ EXAMPLE
   vtex infra update
 ```
 
-_See code: [build/commands/infra/update.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.2.1/build/commands/infra/update.ts)_
+_See code: [build/commands/infra/update.ts](https://github.com/vtex/cli-plugin-infra/blob/v0.2.2/build/commands/infra/update.ts)_
 <!-- commandsstop -->
