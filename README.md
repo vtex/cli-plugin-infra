@@ -29,7 +29,7 @@ $ npm install -g @vtex/cli-plugin-infra
 $ vtex COMMAND
 running command...
 $ vtex (-v|--version|version)
-@vtex/cli-plugin-infra/0.2.2 linux-x64 node-v12.21.0
+@vtex/cli-plugin-infra/0.2.2 linux-x64 node-v12.22.1
 $ vtex --help [COMMAND]
 USAGE
   $ vtex COMMAND
