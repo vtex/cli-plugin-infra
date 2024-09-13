@@ -25,33 +25,30 @@ For more information, read [Ocliff Docs](https://oclif.io/docs/introduction).
 # Usage
 <!-- usage -->
 ```sh-session
-$ vtex plugins install infra
-$ vtex infra --help
-Installs, updates, or lists infra services. Run 'vtex infra' to see all 3 subcommands
-
+$ npm install -g @vtex/cli-plugin-infra
+$ vtex COMMAND
+running command...
+$ vtex (-v|--version|version)
+@vtex/cli-plugin-infra/1.0.0 linux-x64 node-v12.22.12
+$ vtex --help [COMMAND]
 USAGE
-  $ vtex infra COMMAND
-
-COMMANDS
-  infra install  Installs an infra service.
-  infra list     Lists installed infra services.
-  infra update   Updates all installed infra services.
+  $ vtex COMMAND
 ...
 ```
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`vtex infra install SERVICEID`](#vtex-infrainstall-serviceid)
-* [`vtex infra list [NAME]`](#vtex-infralist-name)
-* [`vtex infra update`](#vtex-infraupdate)
+* [`vtex infra:install SERVICEID`](#vtex-infrainstall-serviceid)
+* [`vtex infra:list [NAME]`](#vtex-infralist-name)
+* [`vtex infra:update`](#vtex-infraupdate)
 
-## `vtex infra install SERVICEID`
+## `vtex infra:install SERVICEID`
 
 Installs an infra service.
 
 ```
 USAGE
-  $ vtex infra install SERVICEID
+  $ vtex infra:install SERVICEID
 
 ARGUMENTS
   SERVICEID  Name and version of the service ({vendor}.{servicename}@{x.x.x}) to install.
@@ -74,7 +71,7 @@ Lists installed infra services.
 
 ```
 USAGE
-  $ vtex infra list [NAME]
+  $ vtex infra:list [NAME]
 
 ARGUMENTS
   NAME  Service name.
@@ -87,7 +84,7 @@ OPTIONS
   --trace              Ensure all requests to VTEX IO are traced
 
 ALIASES
-  $ vtex infra ls
+  $ vtex infra:ls
 
 EXAMPLES
   vtex infra list
@@ -102,7 +99,7 @@ Updates all installed infra services.
 
 ```
 USAGE
-  $ vtex infra update
+  $ vtex infra:update
 
 OPTIONS
   -h, --help     show CLI help
