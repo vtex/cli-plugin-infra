@@ -1,7 +1,7 @@
 {
   "name": "@vtex/cli-plugin-infra",
   "description": "vtex plugin infra",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bugs": "https://github.com/vtex/cli-plugin-infra/issues",
   "dependencies": {
     "@oclif/command": "^1",
@@ -57,7 +57,7 @@
     ],
     "topics": {
       "infra": {
-        "description": "Installs, updates, or lists infra services. Run 'vtex infra' to see all 3 subcommands"
+        "description": "Installs, updates, lists, or uninstalls infra services. Run 'vtex infra' to see all 4 subcommands"
       }
     }
   },
