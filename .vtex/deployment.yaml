@@ -1,5 +1,5 @@
 - name: cli-plugin-infra
-  referenceId: PLACEHOLDER
+  referenceId: B18POYO0
   build:
     provider: dkcicd
     pipelines:
